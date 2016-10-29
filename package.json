@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "A memrise course JSON dictionary parser",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vincaslt/memparse.git"
+  },
   "scripts": {
     "test": "mocha -R spec ./test/test.js"
   },
