@@ -4,33 +4,24 @@ const x = require('x-ray')({
   }
 })
 
-module.exports = courseId => {
-  const URL = `http://www.memrise.com/course/${courseId}`
+module.exports = courseId => ({
+  BASE_URL: 'http://www.memrise.com/course',
+  parse: function () {
+    return new Promise((resolve, reject) => {
+      this.xrayParse()((err, obj) => err ? reject(err) : resolve(obj))
+    })
+  },
 
-  return {
-    parse: function () {
-      return new Promise((resolve, reject) => {
-        this.xrayParse()((err, obj) => {
-          if (!err) {
-            resolve(obj)
-          } else {
-            reject(err)
-          }
-        })
-      })
-    },
-
-    xrayParse: () => (
-      x(URL, {
-        course: '.course-name',
-        levels: x('.level', [{
-          name: '.level-title | trim',
-          words: x('.level@href', x('.thing', [{
-            word: '.col_a | trim',
-            meaning: '.col_b | trim'
-          }]))
-        }])
-      })
-    )
+  xrayParse: function () {
+    return x(`${this.BASE_URL}/${courseId}`, {
+      course: '.course-name',
+      levels: x('.level', [{
+        name: '.level-title | trim',
+        words: x('.level@href', x('.thing', [{
+          word: '.col_a | trim',
+          meaning: '.col_b | trim'
+        }]))
+      }])
+    })
   }
-}
+})

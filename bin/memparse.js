@@ -14,13 +14,8 @@ if (argv._.length === 1 && argv._[0] !== '') {
   } else {
     var writer = Parser.xrayParse().write(filename)
 
-    writer.on('finish', () => {
-      console.log(`Done parsing! Output file: ${filename}`)
-    })
-
-    writer.on('error', (err) => {
-      console.log(err)
-    })
+    writer.on('finish', () => console.log(`Done parsing! Output file: ${filename}`))
+    writer.on('error', console.error)
   }
 } else {
   console.log('\nUsage: memparse <courseId> [--file <output-file>]\n')
