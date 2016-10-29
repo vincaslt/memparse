@@ -1,0 +1,26 @@
+{
+  "name": "memparse",
+  "version": "0.1.0",
+  "description": "A memrise course JSON dictionary parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "memparse": "bin/memparse.js"
+  },
+  "keywords": [
+    "memrise"
+  ],
+  "author": "Vincas Stonys",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^3.9.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.3.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "minimist": "^1.2.0",
+    "prettyjson": "^1.1.3",
+    "x-ray": "^2.3.1"
+  }
+}
