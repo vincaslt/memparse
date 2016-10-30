@@ -1,5 +1,7 @@
 # Memparse
 
+[![Build Status](https://travis-ci.org/vincaslt/memparse.svg?branch=master)](https://travis-ci.org/vincaslt/memparse) [![Coverage Status](https://coveralls.io/repos/github/vincaslt/memparse/badge.svg?branch=master)](https://coveralls.io/github/vincaslt/memparse?branch=master)
+
 Memparse is a [Memrise](http://www.memrise.com) course parser.
 It can be used from the command line or from a function in a Node.js project.
 

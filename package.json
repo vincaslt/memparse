@@ -1,6 +1,6 @@
 {
   "name": "memparse",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A memrise course JSON dictionary parser",
   "main": "index.js",
   "repository": {
@@ -8,7 +8,8 @@
     "url": "https://github.com/vincaslt/memparse.git"
   },
   "scripts": {
-    "test": "mocha -R spec ./test/test.js"
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report text-lcov -- -R spec | node ./node_modules/coveralls/bin/coveralls.js",
+    "mocha-test": "mocha -R spec ./test/test.js"
   },
   "bin": {
     "memparse": "bin/memparse.js"
@@ -30,6 +31,8 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
+    "coveralls": "^2.11.14",
+    "istanbul": "^0.4.5",
     "mocha": "^3.1.2",
     "nock": "^9.0.2"
   }
