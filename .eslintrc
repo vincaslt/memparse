@@ -6,13 +6,8 @@
     "promise"
   ],
   "env": {
-    "browser" : true
-  },
-  "globals": {
-    "__DEV__"      : false,
-    "__TEST__"     : false,
-    "__PROD__"     : false,
-    "__COVERAGE__" : false
+    "node" : true,
+    "mocha": true
   },
   "rules": {
     "key-spacing"          : 0,

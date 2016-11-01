@@ -1,18 +1,22 @@
 #! /usr/bin/env node
-var prettyjson = require('prettyjson')
-var argv = require('minimist')(process.argv.slice(2), {
+const prettyjson = require('prettyjson')
+const argv = require('minimist')(process.argv.slice(2), {
   string: ['f', 'file']
 })
 
-if (argv._.length === 1 && argv._[0] !== '') {
+const argsAreCorrect = argv._.length === 1 && argv._[0] !== ''
+if (argsAreCorrect) {
   const Parser = require('../index.js')(argv._[0])
-
-  var filename = argv.f || argv.file
+  const filename = argv.f || argv.file
 
   if (!filename) {
-    Parser.parse().then((list) => { console.log(prettyjson.render(list, { noColor: true })) })
+    // Print to console
+    Parser.parse().then(list => {
+      console.log(prettyjson.render(list, { noColor: true }))
+    })
   } else {
-    var writer = Parser.xrayParse().write(filename)
+    // Write to file
+    const writer = Parser.xrayParse().write(filename)
 
     writer.on('finish', () => console.log(`Done parsing! Output file: ${filename}`))
     writer.on('error', console.error)
