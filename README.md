@@ -13,7 +13,7 @@ First, globally install memparse: `npm i --save -g memparse`
 memparse <courseId> [--file <output-file>]
 
   courseId - required course id, i.e. http://www.memrise.com/course/<courseId>
-  --f, -f  - optional file name to write the output to,
+  --f, -file  - optional file name to write the output to,
              if none is provided it will be printed to the console
 ```
 
